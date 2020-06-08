@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Lightning Slide and Page Header Fixer
+ * Plugin Name: Lightning Slide and PageHeader Fixer
  * Plugin URI: https://lightning.nagoya/
  * Description: Plugin for fix Slide Show and Page Header.
  * Version: 1.0.0
