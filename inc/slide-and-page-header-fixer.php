@@ -114,3 +114,14 @@ function lspf_disable_header_prefix() {
 	}
 }
 add_action( 'init', 'lspf_disable_header_prefix' );
+
+/**
+ * Disable JPNSTYLE Header Prefix.
+ *
+ * @param array $options script options.
+ */
+function lspf_disable_jpnstyle_header_prefix( $options ) {
+	$options['header_scrool'] = false;
+	return $options;
+}
+add_filter( 'lightning_localize_options', 'lspf_disable_jpnstyle_header_prefix', 10, 1 );

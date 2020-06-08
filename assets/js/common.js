@@ -1,16 +1,3 @@
-
-// Lightning のヘッダー固定処理JSを停止するためにbodyに対して識別用class付与 ///////////////////////
-/*
-JPNSTYLEはスライドやページヘッダー部分が固定の特殊処理をしている。
-Lightning標準で body に headfix classが付くことによって動作するが、headfixごと削除してしまうと
-headfixクラスがある前提のものがあれば影響がでてしまうためheadfixの削除ではなくjpnstyleを付与している
-このクラス名によってLightning本体の header_fix.js 内で標準機能が停止される。
-*/
-document.addEventListener('DOMContentLoaded', function () {
-	var bodyClass = document.querySelectorAll("body")[0].getAttribute('class');
-	bodyClass = bodyClass.concat(' jpnstyle');
-	document.querySelectorAll("body")[0].setAttribute('class', bodyClass );
-});
 /*----------------------------------------------------------*/
 /*	トップページ スライド パララックスに対する背景固定処理 & スライドの次のメインコンテンツへの上部余白追加
 /*----------------------------------------------------------*/
