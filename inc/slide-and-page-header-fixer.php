@@ -124,3 +124,11 @@ function lspf_disable_default_header_prefix( $options ) {
 	return false;
 }
 add_filter( 'lightning_headfix_enable', 'lspf_disable_default_header_prefix', 10, 1 );
+
+/**
+ * Disable Default Header Height Changer
+ */
+function lspf_disable_default_header_height_changer() {
+	return false;
+}
+add_filter( 'lightning_header_height_changer_enable', 'lspf_disable_default_header_height_changer' );
