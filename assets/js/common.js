@@ -6,8 +6,8 @@ Lightning標準で body に headfix classが付くことによって動作する
 headfixクラスがある前提のものがあれば影響がでてしまうためheadfixの削除ではなくjpnstyleを付与している
 このクラス名によってLightning本体の header_fix.js 内で標準機能が停止される。
 */
-/*document.addEventListener('DOMContentLoaded', function () {
-	let bodyClass = document.querySelectorAll("body")[0].getAttribute('class');
+document.addEventListener('DOMContentLoaded', function () {
+	var bodyClass = document.querySelectorAll("body")[0].getAttribute('class');
 	bodyClass = bodyClass.concat(' jpnstyle');
 	document.querySelectorAll("body")[0].setAttribute('class', bodyClass );
 });
@@ -35,6 +35,8 @@ headfixクラスがある前提のものがあれば影響がでてしまうた�
 		var slideHeight = 0;
 		// 固定させる要素があるかどうか
 		var isFixElementExist = true;
+
+		
 
 		if ( $('.slide').hasClass('carousel') ){
 
@@ -79,6 +81,8 @@ headfixクラスがある前提のものがあれば影響がでてしまうた�
 			adminBarHeight = $('#wpadminbar').height();
 		}
 
+		$('.siteHeader').css({ "marginTop":adminBarHeight + "px","position":"fixed","top":0 });
+
 		// スライドやページヘッダーなど固定させる要素がある場合
 		if ( isFixElementExist ){
 
@@ -93,6 +97,8 @@ headfixクラスがある前提のものがあれば影響がでてしまうた�
 		
 		// 2020.4.19
 		// だがしかし結局Lightning標準の処理に負けるため、bodyに識別用のクラスをつけて、Lightning標準の方は効かないように変更
+
+		
 
 		// スライドの位置を fix にして、表示開始位置を指定
 		targetElement.css({ "marginTop":headerHeight + adminBarHeight + "px","position":"fixed","top":0 });
