@@ -6,7 +6,7 @@ Lightning標準で body に headfix classが付くことによって動作する
 headfixクラスがある前提のものがあれば影響がでてしまうためheadfixの削除ではなくjpnstyleを付与している
 このクラス名によってLightning本体の header_fix.js 内で標準機能が停止される。
 */
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
 	let bodyClass = document.querySelectorAll("body")[0].getAttribute('class');
 	bodyClass = bodyClass.concat(' jpnstyle');
 	document.querySelectorAll("body")[0].setAttribute('class', bodyClass );
@@ -39,25 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
 		if ( $('.slide').hasClass('carousel') ){
 
 			// 標準スライダーの場合
-			var slideHeight = $('#top__fullcarousel .carousel-inner').height();
-			var targetElement = $('#top__fullcarousel');
+			slideHeight = $('#top__fullcarousel .carousel-inner').height();
+			targetElement = $('#top__fullcarousel');
 
 		} else if ( $('.slide').hasClass('swiper-container') ){
 			// Advanced Sliderの場合
-			var slideHeight = $('.swiper-container .swiper-wrapper').height();
-			var targetElement = $('.swiper-container');
+			slideHeight = $('.swiper-container .swiper-wrapper').height();
+			targetElement = $('.swiper-container');
 
 		} else if ( $('.siteHeader').next().hasClass('vkvu')){
 			// Video Unitの場合
-			var slideHeight = $('.vkvu').height();
-			var targetElement = $('.vkvu');
+			slideHeight = $('.vkvu').height();
+			targetElement = $('.vkvu');
+
+		} else if ( $('.siteHeader').next().hasClass('page-header')){
+			// その他のページの場合
+			slideHeight = $('.page-header').height();
+			targetElement = $('.page-header');
 
 		} else {
-
-			// その他のページの場合
-			var slideHeight = $('.page-header').height();
-			var targetElement = $('.page-header');
-
 			// const siteHeader = document.getElementsByClassName('siteHeader');
 			// const firstElement = siteHeader.nextElementSibling;
 			// if( firstElement.classList.contains('siteContent') ){
@@ -95,18 +95,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		// だがしかし結局Lightning標準の処理に負けるため、bodyに識別用のクラスをつけて、Lightning標準の方は効かないように変更
 
 		// スライドの位置を fix にして、表示開始位置を指定
-		targetElement.css({ "margin-top":headerHeight + adminBarHeight + "px","position":"fixed","top":0 });
+		targetElement.css({ "marginTop":headerHeight + adminBarHeight + "px","position":"fixed","top":0 });
 
 		// メインエリア上部にヘッダーとスライド分の余白を追加
 		// 動作しない時がある場合は コメントアウトしてログを確認。本来は下記の行が2つ出力されるはず。
 		// ただし、読み込みタイミングによっては１回だけしか実行されない時もある。
 		// その為にこのファイルを読み込んだ時と、画像を読み込んだ時で２回実行した上でリサイズした時にも実行する設定としている
 		// console.log("margin-top:" + headerHeight);
-		targetElement.next().css({"margin-top":headerHeight + slideHeight + "px"});
+		targetElement.next().css({"marginTop":headerHeight + slideHeight + "px"});
 
 		// 固定させる要素がない場合
 		} else {
-			$('.siteContent').css({"margin-top":headerHeight + "px"});
+			$('.siteContent').css({"marginTop":headerHeight + "px"});
 		}
 	}
 
