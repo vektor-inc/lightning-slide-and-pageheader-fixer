@@ -32,5 +32,12 @@
 }
 
 .siteContent, .siteContent_after {
-    background-color: #f8f7f3;
+    background: #f8f7f3;
+}
+
+.siteFooter {
+    background: #001440;
+    color: #fff;
+    position: relative;
+    z-index: 10;
 }
