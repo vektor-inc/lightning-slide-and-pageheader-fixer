@@ -94,7 +94,7 @@ add_action( 'wp_enqueue_scripts', 'lspf_enqueue_scripts' );
 /**
  * Disable Header Prefix.
  */
-function lspf_disable_header_prefix() {
+function lspf_disable_skin_header_prefix() {
 	$skin = get_option( 'lightning_design_skin' );
 	if ( 'variety-bs4' === $skin ) {
 		// Variety II のヘッダー固定を解除 ( 必須 ).
@@ -113,15 +113,14 @@ function lspf_disable_header_prefix() {
 		remove_filter( 'lightning_localize_options', 'lightning_origin2_add_js_option', 10, 1 );
 	}
 }
-add_action( 'init', 'lspf_disable_header_prefix' );
+add_action( 'init', 'lspf_disable_skin_header_prefix' );
 
 /**
- * Disable JPNSTYLE Header Prefix.
+ * Disable Default Header Prefix.
  *
  * @param array $options script options.
  */
-function lspf_disable_jpnstyle_header_prefix( $options ) {
-	$options['header_scrool'] = false;
-	return $options;
+function lspf_disable_default_header_prefix( $options ) {
+	return false;
 }
-add_filter( 'lightning_localize_options', 'lspf_disable_jpnstyle_header_prefix', 10, 1 );
+add_filter( 'lightning_headfix_enable', 'lspf_disable_default_header_prefix', 10, 1 );
