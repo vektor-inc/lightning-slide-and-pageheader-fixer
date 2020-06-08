@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lightning Slide and PageHeader Fixer
  * Plugin URI: https://lightning.nagoya/
- * Description: Plugin for fix Slide Show and Page Header.
+ * Description: Plugin for prefix Slide Show and PageHeader.
  * Version: 1.0.0
  * Author:  Vektor,Inc.
  * Author URI: https://lightning.nagoya/
